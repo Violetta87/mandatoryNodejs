@@ -1,0 +1,23 @@
+{
+  "name": "mandatorynodejs",
+  "version": "0.0.1",
+  "description": "mandatory assignement - pages with theory code snippet and do's and don't in nodejs",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Violetta87/mandatoryNodejs.git"
+  },
+  "author": "cam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Violetta87/mandatoryNodejs/issues"
+  },
+  "homepage": "https://github.com/Violetta87/mandatoryNodejs#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
