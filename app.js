@@ -9,7 +9,7 @@ import path from "path"
 app.use(express.static('public'))
 
 app.get("/", (req,res) => {
-    res.sendFile(__dirname + "public/frontpage/frontpage.html")
+    res.sendFile(path.resolve("public/frontpage/frontpage.html"))
 })
 
 
