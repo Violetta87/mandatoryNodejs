@@ -1,16 +1,29 @@
-//vi importere package express via ECMA SCRIPT
+//vi importerer package express via ECMA SCRIPT
 import express from "express"
 //vi Instantiere så vi kan bruge express package.
 const app = express();
 
+//import path so we can use that instead of dirname which doesnt work in ECMA Script
 import path from "path"
 
-//Vi sørger for at klienten har adgang til alle static files i public folder
+//Make sure the client has access to all static files in public folder
 app.use(express.static('public'))
 
+import structuraldata from "./utils/structuraldata.js";
+
+//constructed pages
+
+const frontpagePath = structuraldata.readPage("./public/pages/frontpage/frontpage.html")
+const frontpagePage = structuraldata.renderPage(frontpagePath, {
+    title: "Welcome",
+    css: `<link rel="stylesheet" type="text/css" href="/pages/frontpage/frontpage.css">`
+});
+
+
 app.get("/", (req,res) => {
-    res.sendFile(path.resolve("public/frontpage/frontpage.html"))
-})
+    res.send(frontpagePage)
+} )
+
 
 
 const PORT = 8080
