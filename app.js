@@ -19,10 +19,20 @@ const frontpagePage = structuraldata.renderPage(frontpagePath, {
     css: `<link rel="stylesheet" type="text/css" href="/pages/frontpage/frontpage.css">`
 });
 
+const introductionPath = structuraldata.readPage("./public/pages/nodejs/intro/introNodejs.html")
+const introductionNodejsPage = structuraldata.renderPage(introductionPath, {
+    title: "Introduction to NodeJS",
+    css: `<link rel="stylesheet" type="text/css" href="/pages/nodejs/intro/introNodejs.css">`
+});
+
 
 app.get("/", (req,res) => {
     res.send(frontpagePage)
-} )
+})
+
+app.get("/introNodejs", (req, res) => {
+    res.send(introductionNodejsPage)
+})
 
 
 
