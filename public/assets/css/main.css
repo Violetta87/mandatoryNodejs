@@ -1,6 +1,4 @@
-/*
-    DEMO STYLE
-*/
+
 
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 body {
@@ -12,7 +10,8 @@ body {
 
 .container-side-main{
     display: flex;
-    flex-direction: row;
+    flex-direction: row; 
+    
 }
 
 p {
@@ -162,4 +161,14 @@ footer{
         text-align: center;
         background-color: #7386D5;
         color: white;
+}
+
+/* ---------------------------------------------------
+    Universal STYLE to the pages
+----------------------------------------------------- */
+
+.code-container{
+    background-color: black;
+    max-width: fit-content;
+    padding: 1%;
 }

@@ -25,6 +25,17 @@ const introductionNodejsPage = structuraldata.renderPage(introductionPath, {
     css: `<link rel="stylesheet" type="text/css" href="/pages/nodejs/intro/introNodejs.css">`
 });
 
+const githubpath = structuraldata.readPage("./public/pages/nodejs/github/github.html")
+const githubPage = structuraldata.renderPage(githubpath, {
+    title: "Github tutorial",
+    css: `<link rel="stylesheet" type="text/css" href="/pages/nodejs/github/github.css">`
+});
+
+const npmPath = structuraldata.readPage("./public/pages/nodejs/npm/npm.html")
+const npmPage = structuraldata.renderPage(npmPath, {
+    title: "npm tutorial"
+})
+
 
 app.get("/", (req,res) => {
     res.send(frontpagePage)
@@ -32,6 +43,14 @@ app.get("/", (req,res) => {
 
 app.get("/introNodejs", (req, res) => {
     res.send(introductionNodejsPage)
+})
+
+app.get("/github", (req,res) =>{
+    res.send(githubPage)
+})
+
+app.get("/npm", (req,res) => {
+    res.send(npmPage)
 })
 
 
