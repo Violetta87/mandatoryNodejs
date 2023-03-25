@@ -1,10 +1,7 @@
-//vi importerer package express via ECMA SCRIPT
+//we import package express by ECMA SCRIPT
 import express from "express"
-//vi Instantiere så vi kan bruge express package.
+//Instantiate so we can use express package.
 const app = express();
-
-//import path so we can use that instead of dirname which doesnt work in ECMA Script
-import path from "path"
 
 //Make sure the client has access to all static files in public folder
 app.use(express.static('public'))
@@ -12,6 +9,8 @@ app.use(express.static('public'))
 import structuraldata from "./utils/structuraldata.js";
 
 //constructed pages
+
+//nodejs
 
 const frontpagePath = structuraldata.readPage("./public/pages/frontpage/frontpage.html")
 const frontpagePage = structuraldata.renderPage(frontpagePath, {
@@ -33,22 +32,28 @@ const githubPage = structuraldata.renderPage(githubpath, {
 
 const npmPath = structuraldata.readPage("./public/pages/nodejs/npm/npm.html")
 const npmPage = structuraldata.renderPage(npmPath, {
-    title: "npm tutorial",
+    title: "Npm Tutorial",
     css: `<link rel="stylesheet" type="text/css" href="/pages/nodejs/npm/npm.css">`
 })
 
 const expressImportPath = structuraldata.readPage("./public/pages/nodejs/npm/expressImport.html")
 const expressImportPage = structuraldata.renderPage(expressImportPath, {
-    title: "express Import", 
+    title: "Express Modules", 
     css: `<link rel="stylesheet" type="text/css" href="/pages/nodejs/npm/expressImport.css">`
 })
+
+const ecmaJSpath = structuraldata.readPage("./public/pages/nodejs/ecmajs/ecmaJS.html")
+const ecmaJSpage = structuraldata.renderPage(ecmaJSpath, {
+    title: "Ecma script versus JS common",
+    css: `<link rel="stylesheet" type="text/css" href="/pages/nodejs/ecmajs/ecmaJS.css">`
+}) 
 
 
 app.get("/", (req,res) => {
     res.send(frontpagePage)
 })
 
-app.get("/introNodejs", (req, res) => {
+app.get("/intro-nodejs", (req, res) => {
     res.send(introductionNodejsPage)
 })
 
@@ -60,8 +65,12 @@ app.get("/npm", (req,res) => {
     res.send(npmPage)
 })
 
-app.get("/expressImport", (req, res) => {
+app.get("/express-modules", (req, res) => {
     res.send(expressImportPage)
+})
+
+app.get("/ecma-versus-js", (req,res) => {
+    res.send(ecmaJSpage)
 })
 
 
