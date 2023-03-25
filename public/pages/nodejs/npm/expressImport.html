@@ -1,50 +1,42 @@
 <h2>Modules, express, import</h2>
 <div id="first-container">
     <h3>Modules and express</h3>
-    <p>In nodejs we work with modules which is a unit of code that can be reused in other part of the program. In nodejs, modules are typically js files. Which is what will be focused on here.</p>
+    <p>In nodejs we work with modules which is a unit of code that can be reused in other parts of the program. In nodejs, modules are typically js files. Which is the main focus in this assignement</p>
     <p>Express is a webapplikation framework(dependency/library) for Nodejs. Express provides a set of features that simplify the process of building web applications. Its contains different features like; routing, template engines, static file serving, errorhandling etc.</p>  
-    <p>Serving static files; refers to the process of serving static files such as css, html, javascript, images etc. to the clients web browser. This means that the client has access in the browser in the given directory.</p>
+    
+    <div class="line"></div>
+
+    <p>Serving static files; refers to the process of serving static files such as css, html, javascript, images etc. to the clients web browser</p>
+    <p>This below means that from the browser the client has access to all static files from the given directory 'public'</p>
     <div class="code-container">
         <code>
             app.use(express.static('public'))
         </code>
     </div>
-    <p>express.static takes the name of the directory containing the static files, as an argument. When a client request a static file, the middleware function checks if the file exists in the public folder. This basicly means that the client can acces any static file stored in the public folder. </p>
-    <p>This is a better solution than handling files manually like done below: </p>
-    <div class="code-container">
-        <pre>
-            <code>
-                app.get('/', (req, res) => {
-                  // Read the contents of the file
-                  fs.readFile('public/index.html', (err, data) => {
-                    if (err) {
-                      // Handle the error
-                      res.status(500).send('Error reading file');
-                    } else {
-                      // Send the file contents as the response
-                      res.send(data);
-                    }
-                  });
-                });
-                
-                // Start the server
-                app.listen(8080, () => {
-                  console.log('Server listening on port 8080');
-                });
-                   
-            </code>
-        </pre>
+
+    <br>
+
+    <div id="first-inner-container">
+      <p><em class="highlight-words">express.static()</em> - takes an argument which is the name of the directory containing the static files. When a client request a static file, the middleware function checks if the file exists in the public folder. This basicly means that the client can acces any static file stored in the public folder and type it in the browser. like shown to the right.</p>
+      <img id="screenshotStaticExpress" src="../../../assets/images/screenshotStaticExpress.png">
     </div>
+    <div class="line"></div>
 
-    <p>handling static files makes it:</p>
-    <p>- more efficient</p>
-</div>
-   
+    <div id="second-inner-container">
+    <p>Middleware function is a function that access to the HTTP request(req), HTTP response(res) and the next middleware function in the applications request-response cycle (next)</p>
+    <p>Middleware functions can be added to the application by using<em class="highlight-words"> app.use()</em>and the middleware function express.static() is therefor called for all routes</p>
+    <p><em class="highlight-words"> app.get()</em> and <em class="highlight-words">app.post()</em> are also middleware functions but they are only called for the request that matches that method and route</p>
+    </div>
+    <br>
+    <div id="third-inner-container">
+      <h5>Serving static files makes it:</h5>
+      <ul>
+        <li>Impoved performance:<p>Every time the server receives a request, it must execute the request and generate a response. Serving static files directly from the server avoids dynamic processing and therefor when a request is coming the server reads the static file directly from the disk</p></li>
+        <li>Caching: <p>When serving static files they can be cached by the browser which improved scalability and performance</p></li>
+        <li>Centralized control: <p>When serving static files from the server you have control of those files which are served in terms of adding middleware functions to modify content of files, add authentication/authentization to control who can access files.</p></li>
+        <li>Simplified archeitecture: <p>It can help simplify the architecture ex. serve assets directly from nodejs server instead of having to set up a separate server for that</p></li>
+      </ul>
+    </div>
+     
+  </div> 
 
-
-
-<div class="line"></div>
-
-<div id="second-container">
-    <h3></h3>
-</div>

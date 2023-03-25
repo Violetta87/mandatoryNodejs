@@ -1,0 +1,26 @@
+.talics-words{
+    font-style: italic;
+}
+.highlight-words{
+    font-weight: 900;
+}
+#screenshotStaticExpress{
+    max-width: 30em;
+}
+#first-inner-container{
+    display: flex;
+    flex-direction: row;
+    padding-top: 2%;
+}
+
+#first-inner-container p{
+    padding-right: 2%;
+}
+
+#second-inner-container p{
+    font-style: italic;
+}
+
+.code-container p {
+    color: white;
+}
