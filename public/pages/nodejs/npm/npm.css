@@ -1,0 +1,12 @@
+#first-container{
+    display: flex;
+    flex-direction: row;
+}
+
+h5{
+    font: weight 200px;
+}
+
+#screenshot{
+    max-width: 30em;
+}

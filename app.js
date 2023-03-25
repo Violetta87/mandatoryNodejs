@@ -33,7 +33,14 @@ const githubPage = structuraldata.renderPage(githubpath, {
 
 const npmPath = structuraldata.readPage("./public/pages/nodejs/npm/npm.html")
 const npmPage = structuraldata.renderPage(npmPath, {
-    title: "npm tutorial"
+    title: "npm tutorial",
+    css: `<link rel="stylesheet" type="text/css" href="/pages/nodejs/npm/npm.css">`
+})
+
+const expressImportPath = structuraldata.readPage("./public/pages/nodejs/npm/expressImport.html")
+const expressImportPage = structuraldata.renderPage(expressImportPath, {
+    title: "express Import", 
+    css: `<link rel="stylesheet" type="text/css" href="/pages/nodejs/npm/expressImport.css">`
 })
 
 
@@ -51,6 +58,10 @@ app.get("/github", (req,res) =>{
 
 app.get("/npm", (req,res) => {
     res.send(npmPage)
+})
+
+app.get("/expressImport", (req, res) => {
+    res.send(expressImportPage)
 })
 
 

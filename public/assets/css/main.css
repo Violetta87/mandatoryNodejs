@@ -58,8 +58,8 @@ a:focus {
 
 .wrapper {
     display: flex;
-    width: 100%;
-    align-items: stretch;
+
+
 }
 
 #sidebar {
@@ -147,6 +147,7 @@ main {
     padding: 20px;
     min-height: 100vh;
     transition: all 0.3s;
+    margin-left: 250px;
 }
 
 /* ---------------------------------------------------
@@ -171,4 +172,10 @@ footer{
     background-color: black;
     max-width: fit-content;
     padding: 1%;
+}
+
+#github-image{
+    max-width: 30em;
+    max-height: 25em;
+
 }

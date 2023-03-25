@@ -1,0 +1,42 @@
+<h2>Modules, express, import</h2>
+<div id="first-container">
+    <h3>Modules and express</h3>
+    <p>In nodejs we work with modules which is a unit of code that can be reused in other part of the program. In nodejs, modules are typically js files. Which is what will be focused on here.</p>
+    <p>Express is a webapplikation framework(dependency/library) for Nodejs. Express provides a set of features that simplify the process of building web applications. Its contains different features like; routing, template engines, static file serving, errorhandling etc.</p>  
+    <p>Serving static files; refers to the process of serving static files such as css, html, javascript, images etc. to the clients web browser. This means that the client has access in the browser in the given directory.</p>
+    <div class="code-container">
+        <code>
+            app.use(express.static('public'))
+        </code>
+    </div>
+    <p>express.static takes the name of the directory containing the static files, as an argument. When a client request a static file, the middleware function checks if the file exists in the public folder. This basicly means that the client can acces any static file stored in the public folder. </p>
+    <p>This is a better solution handling files manually: </p>
+</div>
+    <div class="code-container">
+        <code>
+            app.get('/', (req, res) => {
+              // Read the contents of the file
+              fs.readFile('public/index.html', (err, data) => {
+                if (err) {
+                  // Handle the error
+                  res.status(500).send('Error reading file');
+                } else {
+                  // Send the file contents as the response
+                  res.send(data);
+                }
+              });
+            });
+            
+            // Start the server
+            app.listen(8080, () => {
+              console.log('Server listening on port 8080');
+            });
+               
+        </code>
+    </div>
+
+<div class="line"></div>
+
+<div id="second-container">
+    <h3></h3>
+</div>
