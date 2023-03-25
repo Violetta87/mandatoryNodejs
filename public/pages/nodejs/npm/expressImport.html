@@ -10,30 +10,38 @@
         </code>
     </div>
     <p>express.static takes the name of the directory containing the static files, as an argument. When a client request a static file, the middleware function checks if the file exists in the public folder. This basicly means that the client can acces any static file stored in the public folder. </p>
-    <p>This is a better solution handling files manually: </p>
-</div>
+    <p>This is a better solution than handling files manually like done below: </p>
     <div class="code-container">
-        <code>
-            app.get('/', (req, res) => {
-              // Read the contents of the file
-              fs.readFile('public/index.html', (err, data) => {
-                if (err) {
-                  // Handle the error
-                  res.status(500).send('Error reading file');
-                } else {
-                  // Send the file contents as the response
-                  res.send(data);
-                }
-              });
-            });
-            
-            // Start the server
-            app.listen(8080, () => {
-              console.log('Server listening on port 8080');
-            });
-               
-        </code>
+        <pre>
+            <code>
+                app.get('/', (req, res) => {
+                  // Read the contents of the file
+                  fs.readFile('public/index.html', (err, data) => {
+                    if (err) {
+                      // Handle the error
+                      res.status(500).send('Error reading file');
+                    } else {
+                      // Send the file contents as the response
+                      res.send(data);
+                    }
+                  });
+                });
+                
+                // Start the server
+                app.listen(8080, () => {
+                  console.log('Server listening on port 8080');
+                });
+                   
+            </code>
+        </pre>
     </div>
+
+    <p>handling static files makes it:</p>
+    <p>- more efficient</p>
+</div>
+   
+
+
 
 <div class="line"></div>
 
