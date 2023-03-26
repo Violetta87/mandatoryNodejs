@@ -1,11 +1,75 @@
 <h2>Ecmascript versus jsCommon</h2>
-<p>Nodejs supports two different modulesystem, which defines how modules are imported and exported. CommonJS and ECMAscript modules(ESM)</p>
-<div id="first-container">
-    <h3>CommonJS</h3>
-    <div id="first-inner-container">
-        <p>CommonJS is already set in default. It work by using the <em>module.exports</em>object to export modules and their functions and <em>require()</em> function to import. Module</p>
-    </div>
-    <div id="second-inner-container"></div>
-</div>
-
+<p>Nodejs supports two different modulesystem, CommonJS and ECMAscript modules(ESM) which are systems that define how modules are imported and exported. When a module is required in Nodejs it is loaded synchronously by default. Which means that the execution of the code will not continue until the module is fully loaded. This make sure that the module is available when needed. However it is posssible to add <em>require.async()</em>which makess the modules asynchronously.</p>
 <div class="line"></div>
+<h3>CommonJS</h3>
+<div class="ecma-container">
+    <div class="first-inner-container">
+        <p>CommonJS is already set in default. It works by using the <em>module.exports</em> object to export modules amd their functions. And <em>require()</em> function to import. Module</p>
+    </div>
+    <div class="second-inner-container">
+        <div class="code-container">
+            <pre>
+                <code>
+<em>//We import the express library and stow it in a variable</em>
+const express = require('express')
+<em>//Then we instantiate it</em>
+const app = express();
+                </code>
+            </pre>
+        </div>
+    </div>
+</div>
+<div class="line"></div>
+<h3>ECMAscript and how to install</h3>
+<div class="ecma-container">
+    <div class="first-inner-container">
+        <p>1. In the <em>package.json</em> key and value <em>"type": "module"</em> to make nodejs handle the modules as ECMA script modules instead of Commmonjs modules. </p>
+        <p>2. Then in the terminal write <em> npm install</em> to install and update the changed dependencies in the package.json file</p>
+        <p>3. ECMA script works by using <em>import from "express"</em>as importing the modules and <em>export</em> in front of the function that wished to be exported like shown.</p>
+    </div>
+    <div class="second-inner-container">
+        <div id="screenshot-container"><img id="screenshottypeModule" src="../../../assets/images/screenshottypeModule.png"></div>
+        <div class="code-container-new">
+            <pre>
+                <code>
+import express from "express"
+<em>//or</em>
+import { create, update } from "./mymodule.js"
+<em>//in the mymodule.js file, export a specific function</em>
+export function create(){
+    console.log("hej")
+}
+                </code>
+            </pre>
+            
+        </div>
+    </div>
+</div>
+<div class="line"></div>
+<h3>Difference between ECMAscript and jsCommon</h3>
+<table>
+    <thead>
+        <th>JScommon</th>
+        <th>ECMA script</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Built into Node.js and it therefor supports i by default.</td>
+            <td>ES module format is a official standard format to package javascript code for reuse.</td>
+        </tr>
+        <tr>
+            <td>loads synchronously - modules loaded one by one. - No problem in a small applikation.</td>
+            <td>loads asynchronously - </td>
+        </tr>
+        <tr>
+            <td><em>Require()</em> gets parsed in runtime and can be called anywhere in the code</td>
+            <td><em>import from "express"</em> has to be called in the beginning of the file to not give an error</td>
+        </tr>
+        <tr>
+            <td>Often used for serverside in Node.js</td>
+            <td>Used for both clientside and serverside in Node.js projects.</td>
+        </tr>
+    </tbody>
+</table>
+
+<br><br>
