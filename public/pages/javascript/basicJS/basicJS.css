@@ -1,0 +1,33 @@
+#let-container code em{
+    color: white;
+}
+
+#keyword-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.key-container{
+    display: flex;
+    flex-direction: row;
+    margin: 1%;
+}
+
+.key-container p{
+    padding-right: 2%;
+}
+
+.key-container em{
+    font-weight: 900;
+}
+
+#datatype-container{
+    display: flex;
+    flex-direction: row;
+}
+.type-container{
+    width: 50%;
+}
+
+
+

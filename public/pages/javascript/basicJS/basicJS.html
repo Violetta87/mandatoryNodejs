@@ -1,0 +1,97 @@
+<h2>Javacript basic</h2>
+<p>Javascript is a high-level programming language and designed to run in webbrowsers. It can be used to manipulate webpage content and respond to user event. Javascript is often used with html and css to create dynamic and engaging webpages.</p>
+<div class="line"></div>
+<h3>There are different keywords to declare a variable in javascript</h3>
+<div id="keyword-container">
+    <div class="key-container">
+        <p><em> var </em> is keyword to declare variable. Variables called like this, has globalscope which means that the key word makes the variable visible outside the scope. This can lead to confusion and unintended consekvenses, especially when more than one developer is working on the code. Therefor its not good practice.</p>
+        <div class="code-container">
+            <pre>
+                <code>
+function keywordExample() {
+var x = 1;
+let y = 2;
+                      
+    if (true) {
+        var x = 3;
+        let y = 4;
+    console.log(x, y);// output: 3, 4
+    }                     
+    console.log(x, y);//output: 3, 2
+}
+                </code>
+            </pre>
+        </div>
+    </div>
+<div class="line"></div>
+    <div class="key-container">
+        <p><em>let</em> is used to declare a variable a developer wants to change after its declared. Since <em>let</em> lives in the scope</p>
+        <div class="code-container">
+            <pre>
+                <code>
+<em>//y lives in scope and 
+not accesible outside the if statement</em>
+function myFunction() {
+    let x = 10; //
+        if (true) {
+            let y = 20;
+            console.log(x, y); 
+        }
+    console.log(x);
+}             
+                </code>
+            </pre>
+        </div>
+    </div>
+<div class="line"></div>
+    <div class="key-container">
+        <p><em>const</em> declare a value that cannot be reassigned. The value can be modificeres.</p>
+        <div class="code-container">
+            <pre>
+                <code>
+const greeting = 'Hello';
+greeting = 'World'; 
+<em>//error, because greeting cannot be reassigned</em>     
+                </code>
+            </pre>
+            <pre>
+                <code>
+const person = { name: 'Camella', age: 35 };
+person.age = 30; // Valid, the age property of person is modified
+    console.log(person); // Output: { name: 'Camella', age: 30 }
+                </code>
+            </pre>
+        </div>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<div id="datatype-container">
+    <div class="type-container">
+        <h5>Primitive Types:</h5>
+        <ul>
+            <li>number: Integer and float</li>
+            <li>string: sequence of characters</li>
+            <li>boolean: logical value, true or false</li>
+            <li>null: non value or empty value</li>
+            <li>undefined: variable that has been assigned value</li>
+            <li>symbol</li>
+        </ul>
+    </div>
+    <div class="type-container">
+        <h5>Object Types:</h5>
+        <ul>
+            <li>object: collection of properties and methods</li>
+            <li>function: reusable code that performs a task</li>
+            <li>array: collection of values(any type)</li>
+        </ul>
+    </div>
+</div>
+
+<br>
+
+<p>Variables are declared not with a specific datatype, but instead the type is determined dynamically based on the value that is assigned</p>
+
+
+

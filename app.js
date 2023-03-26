@@ -48,6 +48,14 @@ const ecmaJSpage = structuraldata.renderPage(ecmaJSpath, {
     css: `<link rel="stylesheet" type="text/css" href="/pages/nodejs/ecmajs/ecmaJS.css">`
 }) 
 
+const basicJSPath = structuraldata.readPage("./public/pages/javascript/basicJS/basicJS.html")
+const basicJSPage = structuraldata.renderPage(basicJSPath, {
+    title: "Basic Javascript",
+    css: `<link rel="stylesheet" type="text/css" href="/pages/javascript/basicJS/basicJS.css">`
+})
+
+const loginPage = structuraldata.readPage("./public/pages/login/login.html")
+
 
 app.get("/", (req,res) => {
     res.send(frontpagePage)
@@ -71,6 +79,15 @@ app.get("/express-modules", (req, res) => {
 
 app.get("/ecma-versus-js", (req,res) => {
     res.send(ecmaJSpage)
+})
+
+app.get("/basic-js", (req,res) => {
+    res.send(basicJSPage)
+})
+
+
+app.get("/login", (req,res) => {
+    res.send(loginPage)
 })
 
 
