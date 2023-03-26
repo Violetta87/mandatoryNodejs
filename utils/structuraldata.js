@@ -1,5 +1,9 @@
 //import file system to read content from file.
 import fs from 'fs'
+//import util get method to convert to promise
+import util from 'util'
+const readFile = util.promisify(fs.readFileSync)
+
 
 
 function renderPage(page, options={}) {
@@ -17,12 +21,14 @@ function readPage(pagePath){
     return fs.readFileSync(pagePath).toString();
 }
 
-function parseJson(){
-    fs.readFile('../user.json', (error, user) => {
-        if(error) console.log("Didnt read json correct", error);
-        const json = JSON.parse(user);
-        return json;
-    })
+async function parseJson(){
+    try{
+        const user = await readFile('user.json');
+        const json = JSON.parse(user)
+        return json
+    }catch(error){
+        console.log("Didnt read json correct", error)
+    }
 }
 
 export default {

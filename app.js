@@ -102,8 +102,8 @@ app.get("/login", (req,res) => {
 })
 
 /**API */
-app.get("api/users", (req, res) => {
-    res.send({data: structuraldata.parseJson()})
+app.get("/api/users", async (req, res) => {
+    res.send({data: await structuraldata.parseJson()})
 })
 
 const PORT = 8080
