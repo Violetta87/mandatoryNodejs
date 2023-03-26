@@ -48,6 +48,13 @@ const ecmaJSpage = structuraldata.renderPage(ecmaJSpath, {
     css: `<link rel="stylesheet" type="text/css" href="/pages/nodejs/ecmajs/ecmaJS.css">`
 }) 
 
+const crudPath = structuraldata.readPage("./public/pages/nodejs/crud/crud.html")
+const crudPage = structuraldata.renderPage(crudPath, {
+    title: ""
+})
+
+//javascript
+
 const basicJSPath = structuraldata.readPage("./public/pages/javascript/basicJS/basicJS.html")
 const basicJSPage = structuraldata.renderPage(basicJSPath, {
     title: "Basic Javascript",
@@ -85,12 +92,19 @@ app.get("/basic-js", (req,res) => {
     res.send(basicJSPage)
 })
 
+app.get("/crud", (req,res) => {
+    res.send("hej")
+})
+
 
 app.get("/login", (req,res) => {
     res.send(loginPage)
 })
 
-
+/**API */
+app.get("api/users", (req, res) => {
+    res.send({data: structuraldata.parseJson()})
+})
 
 const PORT = 8080
 

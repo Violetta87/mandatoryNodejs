@@ -17,8 +17,17 @@ function readPage(pagePath){
     return fs.readFileSync(pagePath).toString();
 }
 
+function parseJson(){
+    fs.readFile('../user.json', (error, user) => {
+        if(error) console.log("Didnt read json correct", error);
+        const json = JSON.parse(user);
+        return json;
+    })
+}
+
 export default {
     renderPage,
-    readPage
+    readPage,
+    parseJson
 }
 
