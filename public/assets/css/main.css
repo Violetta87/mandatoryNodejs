@@ -176,6 +176,10 @@ footer{
     color: #d63384;
 }
 
+.code-container em{
+    color: white;
+}
+
 #github-image{
     max-width: 30em;
     max-height: 25em;

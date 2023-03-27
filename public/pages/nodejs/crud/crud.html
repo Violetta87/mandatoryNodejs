@@ -5,13 +5,53 @@
 <div class="line"></div>
 
 <div class="crud-container">
-    <div class="first-inner-container">¨
-        
+    <div .="first-inner-container">
+        <h5>Create</h5>
+        <p><em>app.post()</em> is a method provided by express framework for defining a route that handles POST requests on a specific URL Path. <em>app</em> refers to the instance of the Express.js server and <em>get()</em> is a method that takes to params; a string representation of the URL path and a callback function that will be executed when a POST request is made for that URL path. It refers to the "C" in CRUD.</p>
+        <div class="code-container">
+            <pre>
+                <code>
+<em>//routerhandler for HTTP POST request on "/test endpoint</em>
+<em>//execute callback function when POST is made to that endpoint</em>
+<em>//Callback f: - retrieves the data send in the POST request body, 
+    by req.body object and assigned to a variable</em>
+<em>//data is added to an array of persons</em>
+<em>//It sends a JSON response to the client with the new created person</em>
+app.post("/test", (req,res) => {
+    const personTobeCreated = req.body
+    persons.push(personToBeCreated)
+    res.send({data: personTobeCreated})
+})
+                </code>
+            </pre>
+        </div>
     </div>
-    <div class="second-inner-container"></div>
+<div class="line"></div>
+    <div id="second-inner-container">
+        <h5>Read</h5>
+        <p><em>app.get()</em>is a routehandler for handling HTTP GET requests to a specific URL path. It refers to the "R" in CRUD.</p>
+    </div>
+    <div class="code-container">
+        <pre>
+            <code>
+<em>//When ever a GET method is called on URL endpoin "/users" 
+    its will execute the callback function, send a response back 
+    the client which is users</em>
+<em>//'{}' indicates that the response is send in json</em>
+<em>users is a javascript object but will automaticly be parsed to json. 
+    Since its part of HTTP protocol and default behaviour in express.</em>
+
+app.get("/users", (req,res) =>{
+    res.send({data: users})
+})
+            </code>
+        </pre>
+    </div>
 </div>
 
 <div class="crud-container">
     <div class="first-inner-container"></div>
     <div class="first-inner-container"></div>
 </div>
+
+<p>A callbackfunction is a function passed in as a argument to another function. and is invoked by calling that function. Like with all four exsamples above.</p>
