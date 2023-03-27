@@ -21,19 +21,10 @@ function readPage(pagePath){
     return fs.readFileSync(pagePath).toString();
 }
 
-async function parseJson(){
-    try{
-        const user = await readFile('user.json');
-        const json = JSON.parse(user)
-        return json
-    }catch(error){
-        console.log("Didnt read json correct", error)
-    }
-}
+
 
 export default {
     renderPage,
-    readPage,
-    parseJson
+    readPage
 }
 

@@ -5,10 +5,14 @@ const app = express();
 
 //Make sure the client has access to all static files in public folder
 app.use(express.static('public'))
+//Sets up a middleware function ; parse from x-www-form-urlencoded the incoming HTTP request body to javascript object.
+//When you submit a form on a webpage using the HTTP POST method, the data you entered in the form fields is sent to the server in the form of key-value pairs. This data is encoded in a specific format called x-www-form-urlencoded.
+app.use(express.urlencoded({extended: true}));
 
 import structuraldata from "./utils/structuraldata.js";
+import { correctUser } from "./public/pages/login/login.js";
 
-//constructed pages
+/*constructed pages*/
 
 //nodejs
 
@@ -101,10 +105,16 @@ app.get("/login", (req,res) => {
     res.send(loginPage)
 })
 
-/**API */
-app.get("/api/users", async (req, res) => {
-    res.send({data: await structuraldata.parseJson()})
+app.post('/login', (req,res) => {
+    const { user, password } = req.body;
+    if(correctUser.user === user && correctUser.password === password){
+        res.redirect("/");
+    }else{
+        res.send("invalid user or password");
+    }
+
 })
+
 
 const PORT = 8080
 
