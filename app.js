@@ -54,7 +54,8 @@ const ecmaJSpage = structuraldata.renderPage(ecmaJSpath, {
 
 const crudPath = structuraldata.readPage("./public/pages/nodejs/crud/crud.html")
 const crudPage = structuraldata.renderPage(crudPath, {
-    title: ""
+    title: "Create Read Update Cancel (CRUD)",
+    css: `<link rel="stylesheet" type="text/css" href="/pages/nodejs/ecmajs/ecmaJS.css">`
 })
 
 //javascript
@@ -97,7 +98,7 @@ app.get("/basic-js", (req,res) => {
 })
 
 app.get("/crud", (req,res) => {
-    res.send("hej")
+    res.send(crudPage)
 })
 
 
