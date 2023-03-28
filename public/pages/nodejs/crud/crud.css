@@ -1,7 +1,11 @@
-#first-inner-container{
-    width: 100%;
+.inner-text-container em{
+    font-weight: 900;
 }
 
-.first-inner-container em{
+ul li em{
     font-weight: 900;
+}
+
+#talic-container p{
+    font-style: italic;
 }

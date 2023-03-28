@@ -4,10 +4,10 @@
 
 <div class="line"></div>
 
-<div class="crud-container">
-    <div .="first-inner-container">
+<div id="crud-container">
+    <div class="inner-text-container">
         <h5>Create</h5>
-        <p><em>app.post()</em> is a method provided by express framework for defining a route that handles POST requests on a specific URL Path. <em>app</em> refers to the instance of the Express.js server and <em>get()</em> is a method that takes to params; a string representation of the URL path and a callback function that will be executed when a POST request is made for that URL path. It refers to the "C" in CRUD.</p>
+        <p><em> app.post() </em> is a method provided by express framework for defining a route that handles POST requests on a specific URL Path. <em>app</em> refers to the instance of the Express.js server and <em>get()</em> is a method that takes to params; a string representation of the URL path and a callback function that will be executed when a POST request is made for that URL path. It refers to the "C" in CRUD.</p>
         <div class="code-container">
             <pre>
                 <code>
@@ -27,9 +27,9 @@ app.post("/test", (req,res) => {
         </div>
     </div>
 <div class="line"></div>
-    <div id="second-inner-container">
+    <div class="inner-text-container">
         <h5>Read</h5>
-        <p><em>app.get()</em>is a routehandler for handling HTTP GET requests to a specific URL path. It refers to the "R" in CRUD.</p>
+        <p><em> app.get() </em> is a routehandler for handling HTTP GET requests to a specific URL path. It refers to the "R" in CRUD.</p>
     </div>
     <div class="code-container">
         <pre>
@@ -47,11 +47,84 @@ app.get("/users", (req,res) =>{
             </code>
         </pre>
     </div>
+
+    <div class="line"></div>
+
+    <div class="inner-text-container">
+        <h5>Update</h5>
+        <p><em> app.patch</em> is a routehandler for handling HTTP PATCH requests to a specific URL path. It refers to the "U" in CRUD. Theres two difference ways of updating data; "PATCH" and "PUT". HTTP method <em>"PUT"</em>; The entire data is being replaced with the new updated data. With <em>"PATCH"</em> It only changes the part that is set to be updated. Which is useful in terms of reducing the amount of data sent to the server over the network. </p>
+    </div>
+    <div class="code-container">
+        <pre>
+            <code>
+<em>//when a patch request is send to this route with a specific id. It executes the callbackfunction. </em>
+<em>//findIndex - finds the index of the object with same id as req.params.id which is set in the URL path</em>
+<em>//If statement checks if the found person was found in the persons array.</em>
+<em>//If the person is found we use a spreadoperator to update the person. Basicly it creates a new person 
+    that combines the properties of the foundperson
+    with properties of the req.body into the personToBeUpdated and then sets the id to be the same as the foundperson. 
+    It ensure it has the same id.
+     - which kinda makes it the same object</em>
+<em>Then persons array is then updated and we send the updatedperson to the client.</em>
+app.patch("/persons/:id", (req,res) =>{
+    const foundIndex = persons.findIndex((person) => person.id === Number(req.params.id))
+    if(foundIndex === -1) {
+        res.status(404).send({message: `No person found with id: ${foundperson}`})
+    }else{
+        const foundPerson = persons[foundIndex];
+        const personToBeUpDated = {...foundPerson, ...req.body , id: foundPerson.id};
+        persons[foundIndex] = personToBeUpdated
+        res.send({ data: personToBeUpdated})
+    }
+})
+            </code>
+        </pre>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="inner-text-container">
+        <h5>Delete</h5>
+        <p><em>app.delete() </em> is a routehandler for handling HTTP DELETE requests to a URL PATH. It refers to the "D" in CRUD. It handles deleting a person from a collection. </p>
+
+    </div>
+    <div class="code-container">
+        <pre>
+            <code>
+<em>//The Id in the URL is accessed with the req.params.id property.</em>
+<em>Find index of a person matching the req.params.id</em>
+<em>if statement; basicly if findIndex returns a non negative value, it means the person was found.</em>
+<em>"splice()" removes the person from the array and returns the deleted person the client.</em>
+app.delete("/persons/:id", (req, res) => {
+const id = req.params.id
+const foundIndex = persons.findIndex(person => person.id === Number(id));
+    if(foundIndex === -1){
+    res.status(404).send({data : foundIndex, message: `No person found with id: ${req.params.id} `})
+        }else{
+            const deletedPerson = birds.splice(foundIndex, 1);
+            res.send({data: deletedBird});
+        }
+})
+            </code>
+        </pre>
+    </div>
+
+
 </div>
 
-<div class="crud-container">
-    <div class="first-inner-container"></div>
-    <div class="first-inner-container"></div>
+<div class="line"></div>
+<div id="talic-container">
+    <p>A callbackfunction is a function passed in as a argument to another function. and is invoked by calling that function. Like with all four exsamples above.</p>
 </div>
 
-<p>A callbackfunction is a function passed in as a argument to another function. and is invoked by calling that function. Like with all four exsamples above.</p>
+<br>
+
+<div id="sendData-container">
+    <h3>There are several ways to send data to the server from client-side:</h3>
+    <ul>
+        <li><em>QueryString: </em> is a part of a URL that contains additional information in form a key-value pair. It follows <em> "?" </em> and contains params seperated by <em> "&" </em> An Exsample:<p>http://wwww.exsample.com/persons?name=cam&age=35</p></li>
+        <li><em>req.params: </em> is an object that contains all route params extracted from the URL path. Its defined by using <em>" : "</em> and then ex. :id - value is extracted from the URL path and can be accessed through <em> req.params.id </em>.</li>
+        <li><em>req.body: </em> is an object that contains the data send in the body of an HTTP request. It can be send in different formats but since the content-Type header is not set. Express will parse the request as JSON by default by using the middleware function <em> "body-parser()" </em>.</li>
+    </ul>
+</div>
+
