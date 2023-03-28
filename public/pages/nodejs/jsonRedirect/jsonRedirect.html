@@ -1,13 +1,59 @@
-
-
-<div class="line"></div>
-
-<h3>How to make an API</h3>
-
+<h3>How to make a restAPI</h3>
+<p>API (Application programming interface) is a set of rules and protocols, which allows softwareapplications to communicate with eachother. Rest APIs refers to APIs being stateless. Which basicly means that no information is being stored outside the URL. Rest API is a way to send and receive data, and from there manipulate data like create, reading, updating and deleting data(since its build on top of the http protocol). It can be send in different formats; such as JSON or XML.</p>
+<p>An exsample could be; that facebook among others has released an API which makes it possible for developers to have access to data from facebook and from that an applikation with that data.</p>
+<br>
+<p>An exsample of a restAPI design:</p>
+<div class="code-container">
+    <pre>
+        <code>
+<em>//Make notice endpoint always is in plural(good practice)</em>
+GET    /persons
+GET    /persons/:id
+POST   /persons
+UPDATE /persons/:id
+Delete /persons/:id
+        </code>
+    </pre>
+</div>
 
 <div class="line"></div>
 
 <h3>Different ways of sending response to clientside</h3>
+<p>When sending a response to the clientside. Theres different ways of sending the response:</p>
+<div class="code-container">
+    <pre>
+        <code>
+//'{}' indicated that we are sending a json response. 
+app.get("/persons", (req,res) => {
+    res.send({message: "This is a way to send json"})
+})
+        </code>
+    </pre>
+</div>
+<div class="code-container">
+    <pre>
+        <code>
+<em>Will be shown as plain text in the browser</em>
+app.get("/persons", (req, res) => {
+    res.send("a way to send a string")
+})
+        </code>
+    </pre>
+</div>
+<p>__dirname is a string that representate the absolute path of the directory</p>
+<div class="code-container">
+    <pre>
+        <code>
+<em>//A way send an html as response to client.</em>
+app.get("/persons", (req,res) =>{
+    res.sendFile(_dirname + "/public/frontpage/frontpage.html")
+})
+        </code>
+    </pre>
+</div>
+
+
+<h3>Redirect - different ways.</h3>
 
 API
 restAPI design
