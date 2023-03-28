@@ -40,7 +40,7 @@ app.get("/persons", (req, res) => {
         </code>
     </pre>
 </div>
-<p>__dirname is a string that representate the absolute path of the directory</p>
+<p>__dirname is a string that representate the absolute path of the directory of the project and must be included when sending a htmlpage as response. __dirname is a feature that is specific to the Nodejs runtime enviroment which implement the CommonJS modulesystem. Which means it not possible to use it if the module system is changed to ECMA script.</p>
 <div class="code-container">
     <pre>
         <code>
