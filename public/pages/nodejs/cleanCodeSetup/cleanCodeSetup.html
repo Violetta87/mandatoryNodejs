@@ -1,0 +1,26 @@
+<h2>Clean code</h2>
+
+<p>To make code more maintable, readable and easier to collab on Its very important to write clean code and follow coding conventions.</p>
+<ul>
+    <li>Be consistent in naming variables that makes sense. Use camelcase for functions and variable in the second work like <em> testForThis() </em>, and ofcourse use camelcase if its a class name. </li>
+    <li>Keep functions focused which makes it easier to reuse.</li>
+    <li>Very important to make comments.</li>
+    <li>Do not use globalvariables like ex.<em> "var" </em> - makes easier to get unexpected behaviour in code.</li>
+    <li>Handle errors - so then application doesnt crash.</li>
+</ul>
+
+<p>Tools to make it easier to identify and fix issues is to use ESLint which is an open-source utility for javascript and is easy to install in VS code.</p>
+<p>Another way to prevent errors and encourage better coding standards is to <em>"use strict"</em> mode. Which is written in the top of the javascript file. This ensure that fx. variable has to be declared or else it will give an error. </p>
+
+<div class="line"></div>
+
+<h3>Setup to ensure a good structure</h3>
+<div id="first-container">
+    <p>To enable a good and clean code structure in a nodejs application and overall. Its good practice to setup a good folder-structure. This makes it easier for yourself but also for other people to maintain the code, test, fix bugs, refactor the code etc.</p>
+    <div id="first-inner-container">
+        <p>An important and common Nodejs folder-structure is keeping the serverside and clientside seperat from eachother. Which means public folder contains all clientside material; such as the html pages, css, components used to build the navbar and footer, images and so on. Utiliy can be a good folder to all serversite logic such as an template engine.</p>
+        <img id="setupScreenshot" src="../../../assets/images/screenshotSetup.png">
+    </div>
+</div>
+
+

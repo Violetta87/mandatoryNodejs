@@ -1,0 +1,14 @@
+#first-inner-container{
+    display: flex;
+    flex-direction: row;
+    padding-right: 2%;
+}
+
+#setupScreenshot{
+    max-width: 15em;
+    max-height: 15em;
+}
+
+ul li em{
+    font-weight: 900;
+}

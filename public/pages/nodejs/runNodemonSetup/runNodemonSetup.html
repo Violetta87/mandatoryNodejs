@@ -1,23 +1,54 @@
-<h3>How to run nodejs Projects?</h3>
+<h2>How to run nodejs Projects?</h2>
 
 <div id="setup-container">
     <div class="text-container">
-       <p>The way we run our nodejs application is by running the main module.</p>
-       <p> Make notes that its important to "cd" into the project you want to run. When you are in the given directory. Run this command with the main module:</p>
+       <p>The way we run our nodejs application is by running the main module; app.js which is typically our application entry point(best practices). But its possible to run any of the modules in the nodejs project. </p>
+       <p> Make notes that its important to "cd" into the project you want to run. When you are in the given directory. Run this command in the terminal: (could be either in VS terminal or any other terminal in the computer.</p>
     </div>
     <div class="code-container">
-        <pre>
             <code>
 node app.js
             </code>
-        </pre>
     </div>
 
     <div class="text-container">
-        <p>But the command above means that you have to start the server everytime you made changes. - By installing nodemon. You only have to start the server one time and it automaticly starts the server when ever changes has been made.</p>
-        <h5>The installation:</h5>
-        <p>1. Type: </p>
+        <p>But the command above means that you have to start the server everytime you make changes. - By installing nodemon. You only have to start the server one time and it automaticly starts the server when ever changes has been made.</p>
+        <h4>The installation of Nodemon:</h4>
+        <p>1. Use Node package manager og and type:</p>
+        <div class="code-container">
+                <code>
+<em>//-g stands for globally on the machine.</em>
+npm install -g nodemon
+                </code>
+        </div>
+        <p>Once we have installed nodemon. We just need to start the server one time in the terminal, and it updates automaticly.</p>
+        <div class="code-container">
+            <code>
+<em>//this have to be typed to start the nodemon in my computer due to 
+    my computers operating system - but in other pc just nodemon should work. 
+</em>
+nodemon.cmd app.js
+            </code>
+        </div>
+        <p>However nodemon monitors the serverside and does not monitor if changes are made in the frontend. We can resolve this problem by adding a "nodemon.json" file containing this:</p>
+        <div class="code-container"> 
+                <code>
+<em>//The property "ext" stands extention with
+    value: html, css, js - which makes nodemon 
+    monitor those files for changes too.
+</em>
+{
+    "ext": "html, js, css"
+}
+                </code>
+        </div>
     </div>
+
 </div>
 
 <div class="line"></div>
+
+
+
+
+

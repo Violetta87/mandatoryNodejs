@@ -58,6 +58,24 @@ const crudPage = structuraldata.renderPage(crudPath, {
     css: `<link rel="stylesheet" type="text/css" href="/pages/nodejs/crud/crud.css">`
 })
 
+const runNodemonPath = structuraldata.readPage("./public/pages/nodejs/runNodemonSetup/runNodemonSetup.html")
+const runNodemonPage = structuraldata.renderPage(runNodemonPath, {
+    title: "Run Nodejs, Nodemon and Setup",
+    css: `<link rel="stylesheet" type="text/css" href="/pages/nodejs/runNodemonSetup/runNodemonSetup.css">`
+}) 
+
+const cleanCodeSetupPath = structuraldata.readPage("./public/pages/nodejs/cleanCodeSetup/cleanCodeSetup.html")
+const cleanCodeSetupPage = structuraldata.renderPage(cleanCodeSetupPath, {
+    title: "clean Code and setup", 
+    css: `<link rel="stylesheet" type="text/css" href="/pages/nodejs/cleanCodeSetup/cleanCodeSetup.css">`
+}) 
+
+const jsonRedirectPath = structuraldata.readPage("./public/pages/nodejs/jsonRedirect/jsonRedirect.html")
+const jsonRedirectPage = structuraldata.renderPage(jsonRedirectPath, {
+    title: "API JSON",
+    css: `<link rel="stylesheet" type="text/css" href="/pages/nodejs/jsonRedirect/jsonRedirect.css">`
+})
+
 //javascript
 
 const basicJSPath = structuraldata.readPage("./public/pages/javascript/basicJS/basicJS.html")
@@ -99,6 +117,18 @@ app.get("/basic-js", (req,res) => {
 
 app.get("/crud", (req,res) => {
     res.send(crudPage)
+})
+
+app.get("/run-nodemon", (req,res) => {
+    res.send(runNodemonPage)
+})
+
+app.get("/clean-code-setup", (req,res) =>{
+    res.send(cleanCodeSetupPage)
+})
+
+app.get("/json-redirect", (req,res) => {
+    res.send(jsonRedirectPage)
 })
 
 
