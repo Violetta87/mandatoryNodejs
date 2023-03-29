@@ -15,45 +15,126 @@ Delete /persons/:id
         </code>
     </pre>
 </div>
+<br><br>
+<p>An exsample of a restAPI</p>
+<div class="code-container">
+    <pre>
+        <code>
+<em>//In the URL path we indicate its an api and what version (if needed)</em>
+<em>//eks. We can make a method to ex. fetch data in another module, 
+    import the module/method to app.js and call that method, 
+    to show the data in the response - Then we made an restAPI</em>
+app.get("/api/v1/persons", (req,res) =>{
+    res.send({data: getPersons()})
+})
+        </code>
+    </pre>
+</div>
 
 <div class="line"></div>
 
 <h3>Different ways of sending response to clientside</h3>
 <p>When sending a response to the clientside. Theres different ways of sending the response:</p>
-<div class="code-container">
-    <pre>
-        <code>
-//'{}' indicated that we are sending a json response. 
-app.get("/persons", (req,res) => {
-    res.send({message: "This is a way to send json"})
-})
-        </code>
-    </pre>
+<div class="response-container">
+    <h5>JSON</h5>
+    <div class="code-container">
+        <pre>
+            <code>
+    <em>// '{}' indicated that we are sending a json response. </em>
+    app.get("/persons", (req,res) => {
+        res.send({message: "This is a way to send json"})
+    })
+            </code>
+        </pre>
+    </div>
 </div>
-<div class="code-container">
-    <pre>
-        <code>
+<br><br>
+<div class="response-container">
+    <h5>String</h5>
+    <div class="code-container">
+        <pre>
+            <code>
 <em>Will be shown as plain text in the browser</em>
 app.get("/persons", (req, res) => {
     res.send("a way to send a string")
 })
-        </code>
-    </pre>
+            </code>
+        </pre>
+    </div>
 </div>
-<p>__dirname is a string that representate the absolute path of the directory of the project and must be included when sending a htmlpage as response. __dirname is a feature that is specific to the Nodejs runtime enviroment which implement the CommonJS modulesystem. Which means it not possible to use it if the module system is changed to ECMA script.</p>
-<div class="code-container">
-    <pre>
-        <code>
+<br><br>
+<div class="response-container">
+    <h5>HTML - CommonJS</h5>
+    <p> <em>__dirname</em> is a string that representate the absolute path of the directory of the project and must be included when sending a htmlpage as a response. __dirname is a feature that is specific to the Nodejs runtime enviroment which implement the CommonJS modulesystem by default. This means its not possible to use it if the module system is changed to ECMA script.</p>
+    <div class="code-container">
+        <pre>
+            <code>
 <em>//A way send an html as response to client.</em>
 app.get("/persons", (req,res) =>{
     res.sendFile(_dirname + "/public/frontpage/frontpage.html")
 })
+            </code>
+        </pre>
+    </div>
+
+</div>
+<br><br>
+<div class="response-container">
+    <h5>HTML - ECMAscript</h5>
+    <p>When changing the modulesystem to ECMA script <em>__dirname</em> cant be used to set the absolute path. Therefor a way to resolve this would be to import <em>path</em> which is a built in module. <em>Path</em> contains methods for working with files and paths. Therefor we use <em>Path.resolve()</em>.</p>
+    <div class="code-container">
+        <pre>
+            <code>
+<em>//This method resolves the relative path into an absolute path. Which is why "/" is not added infront of public folder.</em>
+import path from "path"
+
+app.get("/persons", (req,res) =>{
+    res.sendFile(path.resolve("public/frontpage/frontpage.html"))
+})
+            </code>
+        </pre>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<h3>Redirect - Client-side vs. Server-side</h3>
+
+<p>Theres different ways of redirecting in Nodejs/javascript in terms of SSR and CSR.</p>
+<div class="code-container">
+    <pre>
+        <code>
+<em>//redirecting in SSR by using Express framework:</em>
+<em>//If the user and password is correct. Then res.redirect to home page</em>
+app.post('/login', (req,res) => {
+    const { user, password } = req.body;
+    if(correctUser.user === user && correctUser.password === password){
+        res.redirect("/");
+    }else{
+        res.send("invalid user or password");
+    }
+
+})
         </code>
     </pre>
 </div>
-
-
-<h3>Redirect - different ways.</h3>
+<br>
+<div class="code-container">
+    <pre>
+        <code>
+<em>//We can use window.location in CSR to redirect to another location. Ex:</em>
+<em>//window.location is a globalobject and href is a property - together it returns 
+c</em>
+const button = document.getElementById("button").addEventListener('click', () =>{
+    window.location.href("/")
+})
+button.onclick = function() {
+  location.assign('https://stackoverflow.com/questions/52229901/navigate-to-route-on-button-click/');
+}
+window.location('/')
+        </code>
+    </pre>
+</div>
 
 API
 restAPI design
