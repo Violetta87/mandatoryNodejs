@@ -1,0 +1,38 @@
+<h2>Loop Methods</h2>
+
+<p>In javascript there are several loop methods available in javascript that makes it possible to quickly iterate over arrays.</p>
+
+<p><em>forloop</em> which we used in java from 1 semester. It goes through all elements in that array.</p>
+<div class="code-container">
+    <pre>
+        <code>
+for (let i = 0; i < array.length; i++) {
+    console.log(array[i]);
+}
+              
+        </code>
+    </pre>
+</div>
+<p><em>foreach</em> iterate over each item and can apply a function to each of them</p>
+<div class="code-container">
+    <pre>
+        <code>
+array.forEach(item => {
+    console.log(item);
+});
+              
+        </code>
+    </pre>
+</div>
+
+<div class="code-container">
+    <pre>
+        <code>
+const spaceshipWithOwners = spaceships.map((spaceship) =>{
+    spaceship.owner = "china"
+    return {...spaceship, owner: "china"};//we do this to avoid mutable array list. 
+});
+              
+        </code>
+    </pre>
+</div>

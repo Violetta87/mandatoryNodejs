@@ -14,13 +14,15 @@ import { correctUser } from "./public/pages/login/login.js";
 
 /*constructed pages*/
 
-//nodejs
+/**Frontpage */
 
 const frontpagePath = structuraldata.readPage("./public/pages/frontpage/frontpage.html")
 const frontpagePage = structuraldata.renderPage(frontpagePath, {
     title: "Welcome",
     css: `<link rel="stylesheet" type="text/css" href="/pages/frontpage/frontpage.css">`
 });
+
+/**Nodejs */
 
 const introductionPath = structuraldata.readPage("./public/pages/nodejs/intro/introNodejs.html")
 const introductionNodejsPage = structuraldata.renderPage(introductionPath, {
@@ -84,12 +86,33 @@ const basicJSPage = structuraldata.renderPage(basicJSPath, {
     css: `<link rel="stylesheet" type="text/css" href="/pages/javascript/basicJS/basicJS.css">`
 })
 
-const loginPage = structuraldata.readPage("./public/pages/login/login.html")
+const fetchJsonPath = structuraldata.readPage("./public/pages/javascript/fetchJson/fetchJson.html")
+const fetchJsonPage = structuraldata.renderPage(fetchJsonPath, {
+    title: "Fetch and Json",
+    css: `<link rel="stylesheet" type="text/css" href="/pages/javascript/basicJS/basicJS.css">`
+})
 
+const loopMethodsPath = structuraldata.readPage("./public/pages/javascript/loops/loopMethods.html")
+const loopMethodsPage = structuraldata.renderPage(loopMethodsPath, {
+    title: "Loops and LoopMethods in javascript",
+    css: `<link rel="stylesheet" type="text/css" href="/pages/javascript/loops/loopMethods.css">`
+})
+
+
+/**UserCredentiel */
+
+const loginPage = structuraldata.readPage("./public/pages/login/login.html")
+const createPage = structuraldata.readPage("./public/pages/userRights/createPage/createPage.html")
+
+/**Routes */
+
+/**Frontpage Route*/
 
 app.get("/", (req,res) => {
     res.send(frontpagePage)
 })
+
+/**Nodejs Route*/
 
 app.get("/intro-nodejs", (req, res) => {
     res.send(introductionNodejsPage)
@@ -111,10 +134,6 @@ app.get("/ecma-versus-js", (req,res) => {
     res.send(ecmaJSpage)
 })
 
-app.get("/basic-js", (req,res) => {
-    res.send(basicJSPage)
-})
-
 app.get("/crud", (req,res) => {
     res.send(crudPage)
 })
@@ -131,6 +150,22 @@ app.get("/json-redirect", (req,res) => {
     res.send(jsonRedirectPage)
 })
 
+/**Javascript */
+
+app.get("/basic-js", (req,res) => {
+    res.send(basicJSPage)
+})
+
+app.get("/fetch-json", (req,res) =>{
+    res.send(fetchJsonPage)
+})
+
+app.get("/loopmethods", (req, res) =>{
+    res.send(loopMethodsPage)
+})
+
+
+/**User Route*/
 
 app.get("/login", (req,res) => {
     res.send(loginPage)
@@ -139,11 +174,15 @@ app.get("/login", (req,res) => {
 app.post('/login', (req,res) => {
     const { user, password } = req.body;
     if(correctUser.user === user && correctUser.password === password){
-        res.redirect("/");
+        res.redirect("/create-page");
     }else{
         res.send("invalid user or password");
     }
 
+})
+
+app.get('/create-page', (req,res) => {
+    res.send(createPage)
 })
 
 

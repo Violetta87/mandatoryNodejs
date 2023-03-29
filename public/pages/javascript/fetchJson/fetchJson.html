@@ -1,0 +1,66 @@
+<h2>JSON format</h2>
+
+<p>JSON (Javascript Object Notation) is a standard text-based format. It is represented in key value pairs. The key is always a string, but the value can be a string, number, boolean, array. Its commonly used for transmitting data in webapplications and is often used restAPIs. Javascript has a global JSON object that has methods available to convert between JSON and javascripts objects. Which makes it easy to work with in javascript.</p>
+<div class="code-container">
+    <pre>
+        <code>
+{
+    "name": "Cam",
+    "age": 35,
+    "Hobbies": ["music, fitness", "programming", "travels"]
+}
+        </code>
+    </pre>
+</div>
+
+<div class="line"></div>
+
+<h3>Fetch</h3>
+<p>When working with a seperat backend and frontend you often work with two different programming language, like we did in 3 semester. The way we connected our frontend with our backend was to fetch the data with <em>fetch()</em></p>
+<p><em>fetch()</em> is s built in javascript function. It takes two arguments in form of an URL it fetches data from, and options if they need to be defined. Options is an is optional object where additional information can be set, like method(if its a POST, PATCH, PUT, DELETE request), headers that includes credentials, body that contains data to be sent with the request and some more optional properties. </p>
+<br><br>
+<p>Theres two ways of making a fetch method, which one chosen is more a matter of preference.</p>
+<br>
+<div class="code-container">
+    <pre>
+        <code>
+<em>//We make the function async so its continues even though fetch havent returned the promise object.</em>
+<em>//But since we use the resonse we set it to be await so the code doesnt continues before it receives the response.</em>
+<em>//The response we get from the url is in JSON and we then parse to a javascript object so we can work with it.</em>
+async function fetchSomething(){
+    const url= 'www.localhost:8080/users'
+    const response = await fetch(url)
+    const data = response.json()
+}
+        </code>
+    </pre>
+</div>
+<br><br>
+<p>Another way to fetch;</p>
+<div class="code-container">
+    <pre>
+        <code>
+<em>//.then() is a method to handles promises when the response is available.</em>
+fetch('http:wwww.localhost:8080/users').then(response => resonse.json()).then(result => console.log(result))
+        </code>
+    </pre>
+</div>
+<br><br>
+<p>Another way to make a fetch method is if you wanna save, update, or cancel data from CSR. Then you can use the optional object. Exsample:</p>
+<div class="code-container">
+    <pre>
+        <code>
+<em>We add a POST cause we want to save data from a form.</em>
+<em>Add header to be in json (cause this is how we send it)</em>
+<em>Body needs to be converted to json, since its prob a javascrit object</em>
+fetch('http://exsample.com/api/persons', {
+    method: 'POST',
+    header: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringyfy(data)
+})
+        </code>
+    </pre>
+</div>
+<div class="line"></div>
