@@ -62,8 +62,7 @@ const crudPage = structuraldata.renderPage(crudPath, {
 
 const runNodemonPath = structuraldata.readPage("./public/pages/nodejs/runNodemonSetup/runNodemonSetup.html")
 const runNodemonPage = structuraldata.renderPage(runNodemonPath, {
-    title: "Run Nodejs, Nodemon and Setup",
-    css: `<link rel="stylesheet" type="text/css" href="/pages/nodejs/runNodemonSetup/runNodemonSetup.css">`
+    title: "Run Nodejs, Nodemon and Setup"
 }) 
 
 const cleanCodeSetupPath = structuraldata.readPage("./public/pages/nodejs/cleanCodeSetup/cleanCodeSetup.html")
@@ -94,8 +93,7 @@ const fetchJsonPage = structuraldata.renderPage(fetchJsonPath, {
 
 const loopMethodsPath = structuraldata.readPage("./public/pages/javascript/loops/loopMethods.html")
 const loopMethodsPage = structuraldata.renderPage(loopMethodsPath, {
-    title: "Loops and LoopMethods in javascript",
-    css: `<link rel="stylesheet" type="text/css" href="/pages/javascript/loops/loopMethods.css">`
+    title: "Loops and LoopMethods in javascript"
 })
 
 
@@ -197,9 +195,7 @@ let pages=[]
     pageTobeCreated.id = ++currentId;
     pages.push(pageTobeCreated)
     res.send()
-
 })
-
  */
 
 
