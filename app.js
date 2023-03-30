@@ -178,11 +178,21 @@ app.post('/login', (req,res) => {
     }else{
         res.send("invalid user or password");
     }
-
 })
 
 app.get('/create-page', (req,res) => {
     res.send(createPage)
+})
+
+let currentId=1;
+let pages=[]
+
+app.post('/create-post', (req,res) => {
+    const pageTobeCreated = req.body
+    pageTobeCreated.id = ++currentId;
+    pages.push(pageTobeCreated)
+    res.send()
+
 })
 
 

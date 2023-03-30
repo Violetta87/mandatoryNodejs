@@ -2,37 +2,65 @@
 
 <p>In javascript there are several loop methods available in javascript that makes it possible to quickly iterate over arrays.</p>
 
-<p><em>forloop</em> which we used in java from 1 semester. It goes through all elements in that array.</p>
+<p><h5>forloop</h5>- which we used in java from 1 semester. It goes through all elements in that array.</p>
 <div class="code-container">
-    <pre>
         <code>
 for (let i = 0; i < array.length; i++) {
-    console.log(array[i]);
-}
-              
+    console.log(array[i]);}           
         </code>
-    </pre>
 </div>
-<p><em>foreach</em> iterate over each item and can apply a function to each of them</p>
+<p><h5>foreach</h5>- iterate over each item and can apply a function to each of them</p>
 <div class="code-container">
-    <pre>
         <code>
 array.forEach(item => {
     console.log(item);
-});
-              
+});      
         </code>
-    </pre>
 </div>
-
+<p><h5> map() </h5>- iterate over an array and creates a new array by executing the function between the brackets for each element of the original array.</p>
+<p><em>spreadoperator</em> is here used to create a new object with all the properties of the original array. This is to ensure that the original array remains unchanged. 
+    If i added the owner property and didnt use the spreadoperator, it would change the original array as well and we would have unintended sideeffects.(effects that weren't intended)</p>
 <div class="code-container">
     <pre>
         <code>
+<em>//iterate though spaceships array and for each element in that array it
+    sets the propery "owner" to be "china". Instead of return just the new array.
+    We use a spreadoperator to we avoid mutuble arraylist.
+</em>
 const spaceshipWithOwners = spaceships.map((spaceship) =>{
     spaceship.owner = "china"
-    return {...spaceship, owner: "china"};//we do this to avoid mutable array list. 
-});
-              
+    return {...spaceship, owner: "china"};
+});         
         </code>
     </pre>
+</div>
+<p><h5>filter()</h5>- is used to create a new array with all elements from that array that has passed through a specific test. 
+    Basicly we filter the array by giving it a condition to filter from.</p>
+<div class="code-container">
+    <pre>
+        <code>
+<em>Basicly it makes a new array with all the elements that has the property priceless equal to true</em>
+const newSpaceshipArray = spaceships.filter(spaceship => spaceship.isPriceless === true)
+        </code>
+    </pre>
+</div>
+<p><h5>reduce()</h5>- is used to reduce an array to a single value by executing a function for each element in that array. It takes two params; a callbackfunction and an initial value, where the accumulation should start.</p>
+<p>It calls the callbackfunction on every element and returns acumulated result of that.</p>
+<div class="code-container">
+    <pre>
+        <code>
+<em>//reduce() counts the totalprice of the spaceships</em>
+<em>//accumulator holds the running value of </em>
+const totalPrice = spaceships.reduce((accumulator, spaceship) =>{
+    return accumulator + spaceship.price;
+}, 0)
+        </code>
+    </pre>
+</div>
+<p><h5>find()</h5> - returns the value of the first element where the condition is met (always a single value) or undefined. </p>
+<div class="code-container">
+        <code>
+<em>//It finds the spaceship that has the property name called cam.</em>
+const specificSpaceship = spaceships.find(spaceship => spaceship.name === cam)
+        </code>
 </div>
