@@ -17,21 +17,20 @@
     <br>
 
     <div id="first-inner-container">
-      <p><em class="highlight-words">express.static()</em> - takes an argument which is the name of the directory containing the static files. When a client request a static file, the middleware function checks if the file exists in the public folder. This basicly means that the client can acces any static file stored in the public folder and type it in the browser. like shown to the right.</p>
+      <p><em class="highlight-words">express.static()</em> - takes an argument which is the name of the directory containing the static files. When a client requests a static file, the middleware function checks if the file exists in the public folder. This basicly means that the client can acces any static file stored in the public folder and type it in the browser. - like shown to the right.</p>
       <img id="screenshotStaticExpress" src="../../../assets/images/screenshotStaticExpress.png">
     </div>
     <div class="line"></div>
 
     <div id="second-inner-container">
-    <p>Middleware function is a function that access to the HTTP request(req), HTTP response(res) and the next middleware function in the applications request-response cycle (next)</p>
-    <p>Middleware functions can be added to the application by using<em class="highlight-words"> app.use()</em>and the middleware function express.static() is therefor called for all routes</p>
-    <p><em class="highlight-words"> app.get()</em> and <em class="highlight-words">app.post()</em> are also middleware functions but they are only called for the request that matches that method and route</p>
+    <p>Middleware function is a function that has access to the HTTP request(req), HTTP response(res) and the next middleware function in the applications request-response cycle (next)</p>
+    <p>Middleware functions are used to add something to the application. Fx. like with<em class="highlight-words"> app.use()</em>.</p>
     </div>
     <br>
     <div id="third-inner-container">
-      <h5>Serving static files makes it:</h5>
+      <h5>Serving static files makes the application have:</h5>
       <ul>
-        <li>Impoved performance:<p>Every time the server receives a request, it must execute the request and generate a response. Serving static files directly from the server avoids dynamic processing and therefor when a request is coming the server reads the static file directly from the disk</p></li>
+        <li>Impoved performance:<p>Every time the server receives a request, it must execute the request and generate a response. Serving static files directly from the server avoids dynamic processing and therefor when a request is coming. The server reads the static file directly from the disk</p></li>
         <li>Caching: <p>When serving static files they can be cached by the browser which improved scalability and performance</p></li>
         <li>Centralized control: <p>When serving static files from the server you have control of those files which are served in terms of adding middleware functions to modify content of files, add authentication/authentization to control who can access files.</p></li>
         <li>Simplified archeitecture: <p>It can help simplify the architecture ex. serve assets directly from nodejs server instead of having to set up a separate server for that</p></li>

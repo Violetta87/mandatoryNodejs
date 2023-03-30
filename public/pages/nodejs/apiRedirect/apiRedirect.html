@@ -1,6 +1,6 @@
 <h3>How to make a restAPI</h3>
 <p>API (Application programming interface) is a set of rules and protocols, which allows softwareapplications to communicate with eachother. Rest APIs refers to APIs being stateless. Which basicly means that no information is being stored outside the URL. Rest API is a way to send and receive data, and from there manipulate data like create, reading, updating and deleting data(since its build on top of the http protocol). It can be send in different formats; such as JSON or XML.</p>
-<p>An exsample could be; that facebook among others has released an API which makes it possible for developers to have access to data from facebook and from that an applikation with that data.</p>
+<p>An exsample could be; that facebook among others has released an API which makes it possible for developers to have access to data from facebook and from there they can build an application with the data.</p>
 <br>
 <p>An exsample of a restAPI design:</p>
 <div class="code-container">
@@ -20,7 +20,7 @@ Delete /persons/:id
 <div class="code-container">
     <pre>
         <code>
-<em>//In the URL path we indicate its an api and what version (if needed)</em>
+<em>//In the URL path we indicate its an API and what version (if needed)</em>
 <em>//eks. We can make a method to ex. fetch data in another module, 
     import the module/method to app.js and call that method, 
     to show the data in the response - Then we made an restAPI</em>
@@ -99,13 +99,13 @@ app.get("/persons", (req,res) =>{
 <div class="line"></div>
 
 <h3>Proxy Server</h3>
-<p>A proxy server is a system or a router that acts like a gateway between the client and the server. When a user sends a request to access a webpage the request is sent to proxy-server which forward the request to the targeted webpage.</p>
-<p>This is especially good security wise cause the proxy-server hides the IP adress of the webpage.This is a way to be anomonous. An exsample of a proxy-server using Nodejs and express:</p>
+<p>A proxy server is a system or a router that acts like a gateway between the client and the server. When a user sends a request to access a webpage the request is sent to the proxy-server which forward the request to the targeted webpage.</p>
+<p>This is especially good security wise cause the proxy-server hides the IP adress of the webpage.This is a way to be anomenous. An exsample of how a proxy-server works using Nodejs and express is:</p>
 <div class="code-container">
     <pre>
         <code>
-<em>We fetch the url and then convert the response to text - then send that result as json to the clientside.</em>
-<em>the response is converted with response.text() so the response can be send as a plain string in the json object.</em>
+<em>We fetch the url and then convert the response to text - then send that result to the clientside.</em>
+<em>response.text() means that the response can be send as a plain string in the response.</em>
 app.get("/proxy", (req,res) => {
     fetch('https://google.com').then(response => response.text()).then(result => res.send(result))
 })
@@ -141,15 +141,10 @@ app.post('/login', (req,res) => {
     <pre>
         <code>
 <em>//We can use window.location in CSR to redirect to another location. Ex:</em>
-<em>//window.location is a globalobject and href is a property - together it returns 
-c</em>
-const button = document.getElementById("button").addEventListener('click', () =>{
+<em>//window.location is a globalobject and href is a property - together it redirects to "/"</em>
+const button= document.getElementById("button").addEventListener('click', () =>{
     window.location.href("/")
 })
-button.onclick = function() {
-  location.assign('https://stackoverflow.com/questions/52229901/navigate-to-route-on-button-click/');
-}
-window.location('/')
         </code>
     </pre>
 </div>

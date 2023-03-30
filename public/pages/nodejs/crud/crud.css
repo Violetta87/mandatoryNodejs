@@ -9,3 +9,7 @@ ul li em{
 #talic-container p{
     font-style: italic;
 }
+
+li p{
+    font-weight: 900;
+}

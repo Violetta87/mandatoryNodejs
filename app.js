@@ -72,10 +72,10 @@ const cleanCodeSetupPage = structuraldata.renderPage(cleanCodeSetupPath, {
     css: `<link rel="stylesheet" type="text/css" href="/pages/nodejs/cleanCodeSetup/cleanCodeSetup.css">`
 }) 
 
-const jsonRedirectPath = structuraldata.readPage("./public/pages/nodejs/jsonRedirect/jsonRedirect.html")
-const jsonRedirectPage = structuraldata.renderPage(jsonRedirectPath, {
-    title: "API JSON",
-    css: `<link rel="stylesheet" type="text/css" href="/pages/nodejs/jsonRedirect/jsonRedirect.css">`
+const apiRedirectPath = structuraldata.readPage("./public/pages/nodejs/apiRedirect/apiRedirect.html")
+const apiRedirectPage = structuraldata.renderPage(apiRedirectPath, {
+    title: "API redirect",
+    css: `<link rel="stylesheet" type="text/css" href="/pages/nodejs/apiRedirect/apiRedirect.css">`
 })
 
 //javascript
@@ -148,7 +148,7 @@ app.get("/clean-code-setup", (req,res) =>{
 })
 
 app.get("/json-redirect", (req,res) => {
-    res.send(jsonRedirectPage)
+    res.send(apiRedirectPage)
 })
 
 /**Javascript */

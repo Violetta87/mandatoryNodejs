@@ -3,7 +3,7 @@
 <div id="setup-container">
     <div class="text-container">
        <p>The way we run our nodejs application is by running the main module; app.js which is typically our application entry point(best practices). But its possible to run any of the modules in the nodejs project. </p>
-       <p> Make notes that its important to "cd" into the project you want to run. When you are in the given directory. Run this command in the terminal: (could be either in VS terminal or any other terminal in the computer.</p>
+       <p> Make notes that its important to "cd" into the project you want to run. When you are in the given directory. Run this command in the terminal: (could be either in VS terminal or any other terminal in the computer.)</p>
     </div>
     <div class="code-container">
             <code>
@@ -12,12 +12,12 @@ node app.js
     </div>
 
     <div class="text-container">
-        <p>But the command above means that you have to start the server everytime you make changes. - By installing nodemon. You only have to start the server one time and it automaticly starts the server when ever changes has been made.</p>
+        <p>But the command above means that you have to start the server everytime you make changes. By installing nodemon you only have to start the server one time and it automaticly starts it when ever changes has been made.</p>
         <h4>The installation of Nodemon:</h4>
         <p>1. Use Node package manager og and type:</p>
         <div class="code-container">
                 <code>
-<em>//-g stands for globally on the machine.</em>
+<em>//-g stands for globally on the machine.(installed not just in the project)</em>
 npm install -g nodemon
                 </code>
         </div>
@@ -33,8 +33,8 @@ nodemon.cmd app.js
         <p>However nodemon monitors the serverside and does not monitor if changes are made in the frontend. We can resolve this problem by adding a "nodemon.json" file containing this:</p>
         <div class="code-container"> 
                 <code>
-<em>//The property "ext" stands extention with
-    value: html, css, js - which makes nodemon 
+<em>//The property "ext" stands for extention with the
+    values: html, css, js - which makes nodemon 
     monitor those files for changes too.
 </em>
 {
@@ -46,7 +46,6 @@ nodemon.cmd app.js
 
 </div>
 
-<div class="line"></div>
 
 
 
