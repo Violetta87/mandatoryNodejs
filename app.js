@@ -103,6 +103,7 @@ const loopMethodsPage = structuraldata.renderPage(loopMethodsPath, {
 
 const loginPage = structuraldata.readPage("./public/pages/login/login.html")
 const createPage = structuraldata.readPage("./public/pages/userRights/createPage/createPage.html")
+const signupPage = structuraldata.readPage("./public/pages/signup/signup.html")
 
 /**Routes */
 
@@ -171,7 +172,7 @@ app.get("/login", (req,res) => {
     res.send(loginPage)
 })
 
-app.post('/login', (req,res) => {
+app.post("/login", (req,res) => {
     const { user, password } = req.body;
     if(correctUser.user === user && correctUser.password === password){
         res.redirect("/create-page");
@@ -180,20 +181,26 @@ app.post('/login', (req,res) => {
     }
 })
 
+app.get("/signup", (req,res) => {
+    res.send(signupPage)
+})
+
 app.get('/create-page', (req,res) => {
     res.send(createPage)
 })
 
-let currentId=1;
+/**
+ * let currentId=1;
 let pages=[]
-
-app.post('/create-post', (req,res) => {
+ * app.post('/create-post', (req,res) => {
     const pageTobeCreated = req.body
     pageTobeCreated.id = ++currentId;
     pages.push(pageTobeCreated)
     res.send()
 
 })
+
+ */
 
 
 const PORT = 8080
